@@ -74,6 +74,16 @@ v)Segment, Ship mode and Region
 sns.scatterplot(x=data['Segment'],y=data['Ship Mode'],hue=data['Region'])
 
 # OUTPUT
+![image](https://user-images.githubusercontent.com/107982953/235736961-a4a066c6-f731-4337-b5cc-ea0821137f2d.png)
+![image](https://user-images.githubusercontent.com/107982953/235737066-7d0f5042-9097-46e7-a7ba-a6418830f26d.png)
+![image](https://user-images.githubusercontent.com/107982953/235737145-5f9f5c9c-f181-4ab0-83f2-f4b35dcb8c0a.png)
+![image](https://user-images.githubusercontent.com/107982953/235737209-13d43c3b-eccd-4d59-a195-7722e9e0012b.png)
+![image](https://user-images.githubusercontent.com/107982953/235737275-44d76011-478c-487a-955b-c0f9df6cf094.png)
+![image](https://user-images.githubusercontent.com/107982953/235737355-8cb6e55a-5e93-47f4-a76d-18ca4d54da64.png)
+![image](https://user-images.githubusercontent.com/107982953/235737523-8f1271ee-005a-482f-b428-c6b00c271e00.png)
+![image](https://user-images.githubusercontent.com/107982953/235737603-3e130fbf-a781-4de3-9118-ba70750ae1d5.png)
+![image](https://user-images.githubusercontent.com/107982953/235737678-96af1d18-47dd-4357-8e86-dbbfb50bbe1a.png)
+![image](https://user-images.githubusercontent.com/107982953/235737767-73fc7acf-b588-41bf-adc3-75cd269cec46.png)
 
 # RESULT
 Thus,We have applied data visualization techniques for the given dataset.
