@@ -19,9 +19,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from scipy import stats
 import seaborn as sns
+
 data = pd.read_csv('/content/Superstore.csv',encoding='windows-1252')
 data.head()
-
 
 data.info()
 
@@ -29,61 +29,76 @@ data.isnull().sum()
 
 1.Which Segment has Highest sales?
 
-sns.countplot(x=data['Segment'],data=data)
-plt.title("No.of.sales in segment")
+sns.barplot(x=data['Segment'],y=data['Sales'])
+plt.title("Segment VS Sales")
 
 2.Which City has Highest profit?
 
 sns.barplot(x=data['City'],y=data['Profit'])
 plt.title("NO.of.Profit in cities")
 
+City=data.loc[:,["City","Profit"]]
+data.head(5)
+City=City.groupby(by=["City"]).sum().sort_values(by="Profit")
+plt.figure(figsize=(17,7))
+sns.barplot(x=City.index,y="Profit",data=City)
+plt.xticks(rotation = 90)
+plt.xlabel=("City")
+plt.ylabel=("Profit")
+plt.show()
+
+data.sort_values(by=['City'],inplace=True)
 3.Which ship mode is profitable?
 
-sns.countplot(x=data['Ship Mode'],data=data)
+sns.barplot(x=data['Ship Mode'],y=data['Profit'])
 plt.title("NO.OF.Profits in ship mode")
 
 4.Sales of the product based on region.
 
-sns.boxplot(x=data['Region'],y=data['Sales'])
+sns.barplot(x=data['Region'],y=data['Sales'])
 plt.title("Sales of product based on region")
 
 5.Find the relation between sales and profit.
 
-sns.scatterplot(x=data['Sales'],y=data['Profit'])
+sns.lineplot(x=data['Sales'],y=data['Profit'])
 
 6.Find the relation between sales and profit based on the following category.
 
 i) Segment
 
-sns.scatterplot(x=data['Sales'],y=data['Profit'],hue=data['Segment'])
+sns.barplot(x=data['Segment'],y=data['Profit'])
 
 ii)City
 
-sns.scatterplot(x=data['Sales'],y=data['Profit'],hue=data['City'])
+sns.barplot(x=data['City'],y=data['Profit'])
 
 iii)States
 
-sns.scatterplot(x=data['Sales'],y=data['Profit'],hue=data['Region'])
+sns.barplot(x=data['Region'],y=data['Profit'])
 
 iv)Segment And Ship Mode
 
-sns.scatterplot(x=data['Sales'],y=data['Ship Mode'],hue=data['Segment'])
+sns.barplot(x=data['Ship Mode'],y=data['Profit'])
 
 v)Segment, Ship mode and Region
 
-sns.scatterplot(x=data['Segment'],y=data['Ship Mode'],hue=data['Region'])
+sns.barplot(x=data['Region'],y=data['Profit'])
 
 # OUTPUT
-![image](https://user-images.githubusercontent.com/107982953/235736961-a4a066c6-f731-4337-b5cc-ea0821137f2d.png)
-![image](https://user-images.githubusercontent.com/107982953/235737066-7d0f5042-9097-46e7-a7ba-a6418830f26d.png)
-![image](https://user-images.githubusercontent.com/107982953/235737145-5f9f5c9c-f181-4ab0-83f2-f4b35dcb8c0a.png)
-![image](https://user-images.githubusercontent.com/107982953/235737209-13d43c3b-eccd-4d59-a195-7722e9e0012b.png)
-![image](https://user-images.githubusercontent.com/107982953/235737275-44d76011-478c-487a-955b-c0f9df6cf094.png)
-![image](https://user-images.githubusercontent.com/107982953/235737355-8cb6e55a-5e93-47f4-a76d-18ca4d54da64.png)
-![image](https://user-images.githubusercontent.com/107982953/235737523-8f1271ee-005a-482f-b428-c6b00c271e00.png)
-![image](https://user-images.githubusercontent.com/107982953/235737603-3e130fbf-a781-4de3-9118-ba70750ae1d5.png)
-![image](https://user-images.githubusercontent.com/107982953/235737678-96af1d18-47dd-4357-8e86-dbbfb50bbe1a.png)
-![image](https://user-images.githubusercontent.com/107982953/235737767-73fc7acf-b588-41bf-adc3-75cd269cec46.png)
+![image](https://github.com/varshini67t/Data-Visualization/assets/107982953/96b091b0-45a9-46bc-b464-9340aacd2b55)
+![image](https://github.com/varshini67t/Data-Visualization/assets/107982953/15360cfd-a2a6-4a09-85b4-adf9a68eb39c)
+![image](https://github.com/varshini67t/Data-Visualization/assets/107982953/834fbbd0-27c0-41c2-b6c9-173377a8dadd)
+![image](https://github.com/varshini67t/Data-Visualization/assets/107982953/e18880fc-7daa-46c8-940f-7702dd809b38)
+![image](https://github.com/varshini67t/Data-Visualization/assets/107982953/e0483cd7-eac0-40db-af4e-2c2d85c055bf)
+![image](https://github.com/varshini67t/Data-Visualization/assets/107982953/4dfa4ded-509c-4584-800b-00946e6290f7)
+![image](https://github.com/varshini67t/Data-Visualization/assets/107982953/25392640-f20c-4dc0-9043-aa9048cb57f4)
+![image](https://github.com/varshini67t/Data-Visualization/assets/107982953/f3f13433-8fdc-46a5-909f-2fc3b32345a4)
+![image](https://github.com/varshini67t/Data-Visualization/assets/107982953/4e77647d-eaa7-4991-8c3b-a0f2a7ff4eda)
+![image](https://github.com/varshini67t/Data-Visualization/assets/107982953/29c8d9e6-d141-4565-a1d2-1960e3e29be6)
+![image](https://github.com/varshini67t/Data-Visualization/assets/107982953/e86721d4-1830-47be-a6d5-05d3335eb470)
+![image](https://github.com/varshini67t/Data-Visualization/assets/107982953/fe806d75-ee8a-4ca6-a48a-a2a9f268f702)
+![image](https://github.com/varshini67t/Data-Visualization/assets/107982953/aa54d71a-0196-4c72-9e1a-a12bf7a8ef9f)
+![image](https://github.com/varshini67t/Data-Visualization/assets/107982953/0fa097e5-933b-4b0a-a37a-f59c41b313fa)
 
 # RESULT
 Thus,We have applied data visualization techniques for the given dataset.
