@@ -66,23 +66,66 @@ sns.lineplot(x=data['Sales'],y=data['Profit'])
 
 i) Segment
 
-sns.barplot(x=data['Segment'],y=data['Profit'])
+grouped_data = data.groupby('Segment')[['Sales', 'Profit']].mean()
+# Create a bar chart of the grouped data
+fig, ax = plt.subplots()
+ax.bar(grouped_data.index, grouped_data['Sales'], label='Sales')
+ax.bar(grouped_data.index, grouped_data['Profit'], bottom=grouped_data['Sales'], label='Profit')
+ax.set_xlabel('Segment')
+ax.set_ylabel('Value')
+ax.legend()
+plt.title("Sales and Profit based on Segment")
+plt.show()
 
 ii)City
 
-sns.barplot(x=data['City'],y=data['Profit'])
+grouped_data = data.groupby('City')[['Sales', 'Profit']].mean()
+# Create a bar chart of the grouped data
+fig, ax = plt.subplots()
+ax.bar(grouped_data.index, grouped_data['Sales'], label='Sales')
+ax.bar(grouped_data.index, grouped_data['Profit'], bottom=grouped_data['Sales'], label='Profit')
+ax.set_xlabel('City')
+ax.set_ylabel('Value')
+ax.legend()
+plt.title("Sales and Profit based on City")
+plt.show()
 
 iii)States
 
-sns.barplot(x=data['Region'],y=data['Profit'])
+grouped_data = data.groupby('State')[['Sales', 'Profit']].mean()
+# Create a bar chart of the grouped data
+fig, ax = plt.subplots()
+ax.bar(grouped_data.index, grouped_data['Sales'], label='Sales')
+ax.bar(grouped_data.index, grouped_data['Profit'], bottom=grouped_data['Sales'], label='Profit')
+ax.set_xlabel('State')
+ax.set_ylabel('Value')
+ax.legend()
+plt.title("Sales and Profit based on States")
 
 iv)Segment And Ship Mode
 
-sns.barplot(x=data['Ship Mode'],y=data['Profit'])
+grouped_data = data.groupby(['Segment', 'Ship Mode'])[['Sales', 'Profit']].mean()
+pivot_data = grouped_data.reset_index().pivot(index='Segment', columns='Ship Mode', values=['Sales', 'Profit'])
+# Create a bar chart of the grouped data
+fig, ax = plt.subplots()
+pivot_data.plot(kind='bar', ax=ax)
+ax.set_xlabel('Segment')
+ax.set_ylabel('Value')
+plt.legend(title='Ship Mode')
+plt.legend(loc="best")
+plt.title("Sales and Profit based on Segment and Ship mode")
+plt.show()
 
 v)Segment, Ship mode and Region
 
-sns.barplot(x=data['Region'],y=data['Profit'])
+grouped_data = data.groupby(['Segment', 'Ship Mode','Region'])[['Sales', 'Profit']].mean()
+pivot_data = grouped_data.reset_index().pivot(index=['Segment', 'Ship Mode'], columns='Region', values=['Sales', 'Profit'])
+sns.set_style("whitegrid")
+sns.set_palette("Set1")
+pivot_data.plot(kind='bar', stacked=True, figsize=(8, 5))
+plt.legend(title='Region')
+plt.legend(loc='best')
+plt.title("Sales and Profit based on Segment,Ship mode and Region")
 
 # OUTPUT
 ![image](https://github.com/varshini67t/Data-Visualization/assets/107982953/96b091b0-45a9-46bc-b464-9340aacd2b55)
@@ -94,11 +137,11 @@ sns.barplot(x=data['Region'],y=data['Profit'])
 ![image](https://github.com/varshini67t/Data-Visualization/assets/107982953/25392640-f20c-4dc0-9043-aa9048cb57f4)
 ![image](https://github.com/varshini67t/Data-Visualization/assets/107982953/f3f13433-8fdc-46a5-909f-2fc3b32345a4)
 ![image](https://github.com/varshini67t/Data-Visualization/assets/107982953/4e77647d-eaa7-4991-8c3b-a0f2a7ff4eda)
-![image](https://github.com/varshini67t/Data-Visualization/assets/107982953/29c8d9e6-d141-4565-a1d2-1960e3e29be6)
-![image](https://github.com/varshini67t/Data-Visualization/assets/107982953/e86721d4-1830-47be-a6d5-05d3335eb470)
-![image](https://github.com/varshini67t/Data-Visualization/assets/107982953/fe806d75-ee8a-4ca6-a48a-a2a9f268f702)
-![image](https://github.com/varshini67t/Data-Visualization/assets/107982953/aa54d71a-0196-4c72-9e1a-a12bf7a8ef9f)
-![image](https://github.com/varshini67t/Data-Visualization/assets/107982953/0fa097e5-933b-4b0a-a37a-f59c41b313fa)
+![image](https://github.com/varshini67t/Data-Visualization/assets/107982953/a1d78a44-8f61-40db-a1fa-76de87a1fede)
+![image](https://github.com/varshini67t/Data-Visualization/assets/107982953/95466807-460c-4843-ae09-79399bacee45)
+![image](https://github.com/varshini67t/Data-Visualization/assets/107982953/9beb503c-c642-4f53-a34c-c1b4f788718b)
+![image](https://github.com/varshini67t/Data-Visualization/assets/107982953/b9c93e75-5e49-4c99-ba02-5148ddb0d6eb)
+![image](https://github.com/varshini67t/Data-Visualization/assets/107982953/0898a0b9-2e44-42a6-93e8-53370dd8a1d5)
 
 # RESULT
 Thus,We have applied data visualization techniques for the given dataset.
