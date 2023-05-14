@@ -67,7 +67,6 @@ sns.lineplot(x=data['Sales'],y=data['Profit'])
 i) Segment
 
 grouped_data = data.groupby('Segment')[['Sales', 'Profit']].mean()
-# Create a bar chart of the grouped data
 fig, ax = plt.subplots()
 ax.bar(grouped_data.index, grouped_data['Sales'], label='Sales')
 ax.bar(grouped_data.index, grouped_data['Profit'], bottom=grouped_data['Sales'], label='Profit')
@@ -80,7 +79,6 @@ plt.show()
 ii)City
 
 grouped_data = data.groupby('City')[['Sales', 'Profit']].mean()
-# Create a bar chart of the grouped data
 fig, ax = plt.subplots()
 ax.bar(grouped_data.index, grouped_data['Sales'], label='Sales')
 ax.bar(grouped_data.index, grouped_data['Profit'], bottom=grouped_data['Sales'], label='Profit')
@@ -93,7 +91,6 @@ plt.show()
 iii)States
 
 grouped_data = data.groupby('State')[['Sales', 'Profit']].mean()
-# Create a bar chart of the grouped data
 fig, ax = plt.subplots()
 ax.bar(grouped_data.index, grouped_data['Sales'], label='Sales')
 ax.bar(grouped_data.index, grouped_data['Profit'], bottom=grouped_data['Sales'], label='Profit')
@@ -106,7 +103,6 @@ iv)Segment And Ship Mode
 
 grouped_data = data.groupby(['Segment', 'Ship Mode'])[['Sales', 'Profit']].mean()
 pivot_data = grouped_data.reset_index().pivot(index='Segment', columns='Ship Mode', values=['Sales', 'Profit'])
-# Create a bar chart of the grouped data
 fig, ax = plt.subplots()
 pivot_data.plot(kind='bar', ax=ax)
 ax.set_xlabel('Segment')
